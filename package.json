@@ -8,11 +8,7 @@
     "start": "node netlify/functions/api.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.21.0",
-    "@neondatabase/serverless": "^0.9.0",
     "express": "^4.19.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "serverless-http": "^3.2.0"
   }
 }
