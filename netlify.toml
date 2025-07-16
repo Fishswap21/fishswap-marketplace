@@ -1,14 +1,5 @@
 [build]
   publish = "public"
-   issue is in your netlify.toml file! You created the function as `server.js`, but the redirects were still pointing to `api`. 
-
-## 🔧 **Quick Fix**
-
-You need to update your **netlify.toml** file in GitHub to match the `server.js` function name:
-
-```toml
-[build]
-  publish = "public"
   command = "echo 'Static deployment ready'"
 
 [build.environment]
