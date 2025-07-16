@@ -1,40 +1,28 @@
-const serverless = require('serverless-http');
-const express = require('express');
-const path = require('path');
+[build]
+  publish = "public"
+   issue is in your netlify.toml file! You created the function as `server.js`, but the redirects were still pointing to `api`. 
 
-const app = express();
+## 🔧 **Quick Fix**
 
-app.use(express.static(path.join(__dirname, '../../public')));
+You need to update your **netlify.toml** file in GitHub to match the `server.js` function name:
 
-app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'FishSwap API is running',
-    timestamp: new Date().toISOString(),
-    environment: 'production'
-  });
-});
+```toml
+[build]
+  publish = "public"
+  command = "echo 'Static deployment ready'"
 
-app.get('/api/listings', (req, res) => {
-  res.json([
-    {
-      id: 1,
-      title: "Beautiful Betta Fish",
-      price: 25.99,
-      category: "Freshwater Fish",
-      seller: "AquaExpert"
-    },
-    {
-      id: 2,
-      title: "Live Aquarium Plants Pack",
-      price: 15.99,
-      category: "Plants",
-      seller: "PlantMaster"
-    }
-  ]);
-});
+[build.environment]
+  NODE_VERSION = "20"
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/index.html'));
-});
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
 
-module.exports.handler = serverless(app);
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
