@@ -2,10 +2,10 @@
   "name": "fishswap-marketplace",
   "version": "1.0.0",
   "description": "FishSwap - A specialized marketplace for aquarium enthusiasts",
-  "main": "netlify/functions/api.js",
+  "main": "netlify/functions/server.js",
   "scripts": {
-    "build": "echo 'Build completed - static files ready'",
-    "start": "node netlify/functions/api.js"
+    "build": "echo 'Static deployment ready'",
+    "start": "node netlify/functions/server.js"
   },
   "dependencies": {
     "express": "^4.19.2",
