@@ -2,9 +2,10 @@
   "name": "fishswap-marketplace",
   "version": "1.0.0",
   "description": "FishSwap - A specialized marketplace for aquarium enthusiasts",
+  "main": "netlify/functions/api.js",
   "scripts": {
-    "build": "npm run build",
-    "start": "node server/index.js"
+    "build": "echo 'Build completed - static files ready'",
+    "start": "node netlify/functions/api.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.21.0",
